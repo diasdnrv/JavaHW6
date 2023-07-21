@@ -1,0 +1,78 @@
+1.
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int openE = 9;
+        int openR = 10;
+        int closeE = 19;
+        int closeR = 20;
+        int open = Math.min(openE,openR);
+        int close = Math.max(closeE, closeR);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the time: ");
+        int  time;
+        while (true){
+            time = scanner.nextInt();
+            if (time<0 || time >=24)
+                System.out.println("Enter the valid value");
+            else break;
+        }
+        if (time<open || time>close) System.out.println("Both shops are closed");
+        else if (shopEOpened(time,openE,closeE) && shopROpened(time,openR,closeR)) System.out.println("Both shops are opened");
+        else if (shopEOpened(time,openE,closeE)) System.out.println("Only the first shop is open");
+        else System.out.println("Only the second shop is open");
+
+
+    }
+    public static boolean shopEOpened (int time, int open, int close) {
+        if (time >= open && time<close) return true;
+        else return false;
+    }
+    public static boolean shopROpened (int time, int open, int close) {
+        if (time >= open && time<close) return true;
+        else return false;
+
+    }
+}
+
+
+2.
+
+import java.util.Scanner;
+
+public class Hw {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Please enter the year: ");
+        int year = sc.nextInt();
+
+        if ((year%4==0 && year%100!=0)|| year%400==0) System.out.println("It's a leap year");
+        else System.out.println("It's not a leap year");
+
+    }
+}
+
+3.
+
+import java.util.Scanner;
+
+public class Hwj {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Please enter the first number: ");
+        int x1 = sc.nextInt();
+        System.out.print("Please enter the second number: ");
+        int x2 = sc.nextInt();
+        System.out.print("Please enter the third number: ");
+        int x3 = sc.nextInt();
+
+        int max = x1;
+        if (x2>max) max = x2;
+        if (x3>max) max = x3;
+        System.out.println("The biggest number is: "+ max);
+
+    }
+}
